@@ -1,0 +1,11 @@
+2025-09-16 09:45:49.561 [info] update#setState idle
+2025-09-16 09:46:19.421 [info] update#setState checking for updates
+2025-09-16 09:46:19.425 [info] update#setState idle
+2025-09-16 10:46:19.423 [info] update#setState checking for updates
+2025-09-16 10:46:19.431 [info] update#setState idle
+2025-09-16 11:46:19.430 [info] update#setState checking for updates
+2025-09-16 11:46:19.433 [info] update#setState idle
+2025-09-16 12:46:19.436 [info] update#setState checking for updates
+2025-09-16 12:46:19.449 [info] update#setState idle
+2025-09-16 13:17:11.989 [info] Extension host with pid 3949 exited with code: 0, signal: unknown.
+2025-09-16 13:17:13.307 [error] Extension host with pid 3949 still exists, forcefully killing it...

@@ -1,0 +1,13 @@
+.container {
+   display: flex;
+}
+#box{
+    width: 120px;
+    height: 12px;
+}
+.box1{
+    background-color: rgb(231, 196, 37);
+}
+.box2{
+    background-color: ;
+}

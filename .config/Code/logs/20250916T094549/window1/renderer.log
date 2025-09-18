@@ -1,0 +1,24 @@
+2025-09-16 09:45:50.465 [info] ChatSessionStore: Migrating 0 chat sessions from storage service to file system
+2025-09-16 09:45:50.777 [info] Started local extension host with pid 3949.
+2025-09-16 09:45:52.786 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2025-09-16 09:45:53.180 [warning] Failed to fetch chat participant registry Offline
+2025-09-16 09:45:53.453 [info] [perf] Render performance baseline is 103ms
+2025-09-16 09:48:38.425 [error] Offline: Offline
+    at BJe.L (vscode-file://vscode-app/snap/code/206/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1266:34495)
+    at async BJe.I (vscode-file://vscode-app/snap/code/206/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1266:28909)
+    at async a (vscode-file://vscode-app/snap/code/206/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1266:27631)
+    at async BJe.query (vscode-file://vscode-app/snap/code/206/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1266:27919)
+    at async ndt.queryGallery (vscode-file://vscode-app/snap/code/206/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2405:14748)
+    at async NGs.Mc (vscode-file://vscode-app/snap/code/206/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2401:13373)
+    at async vscode-file://vscode-app/snap/code/206/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2401:4483
+2025-09-16 09:48:38.528 [error] Offline: Offline: Offline
+    at BJe.O (vscode-file://vscode-app/snap/code/206/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1266:36522)
+    at async BJe.N (vscode-file://vscode-app/snap/code/206/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1266:35251)
+    at async BJe.D (vscode-file://vscode-app/snap/code/206/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1266:24251)
+    at async vscode-file://vscode-app/snap/code/206/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1266:23722
+    at async Promise.all (index 0)
+    at async BJe.C (vscode-file://vscode-app/snap/code/206/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1266:23673)
+    at async BJe.getExtensions (vscode-file://vscode-app/snap/code/206/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:1266:22330)
+    at async ndt.getExtensions (vscode-file://vscode-app/snap/code/206/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2405:15150)
+    at async zGs.Rc (vscode-file://vscode-app/snap/code/206/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2401:17026)
+    at async zGs.$c (vscode-file://vscode-app/snap/code/206/usr/share/code/resources/app/out/vs/workbench/workbench.desktop.main.js:2401:19670)

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styling div and li</title>
+  <style>
+  
+    .card {
+      width: 300px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #f5f6fa;
+      border: 2px solid #3498db;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .card h2 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+    
+    ul {
+      list-style: none; 
+      padding: 0;
+    }
+
+    ul li {
+      background: #3498db;
+      color: white;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 6px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    ul li:hover {
+      background: #2980b9;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>My Menu</h2>
+    <ul>
+      <li>🏠 Home</li>
+      <li>ℹ️ About</li>
+      <li>💼 Services</li>
+      <li>📞 Contact</li>
+    </ul>
+  </div>
+</body>
+</html>

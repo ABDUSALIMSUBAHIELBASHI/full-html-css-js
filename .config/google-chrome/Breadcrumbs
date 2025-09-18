@@ -1,0 +1,69 @@
+0:01:15 TextSelectionChanged
+0:01:16 TextSelectionChanged
+0:01:16 TextSelectionChanged
+0:01:17 TextSelectionChanged
+0:01:22 Tab2 StartNav19 #renderer-user #link
+0:01:22 Tab2 FinishNav19
+0:01:24 Autofill_OnWillSubmitForm
+0:01:24 UserEducation.MessageNotShown
+0:01:24 UserEducation.MessageNotShown.IPH_PasswordsSavePrimingPromo
+0:01:24 UserEducation.MessageNotShown.FeatureDisabled
+0:01:25 Tab2 StartNav20 #renderer-script #auto_subframe
+0:01:25 Tab2 FinishNav20
+0:01:25 Tab2 PageLoad
+0:01:25 UserEducation.MessageNotShown
+0:01:25 UserEducation.MessageNotShown.IPH_PasswordsSavePrimingPromo
+0:01:25 UserEducation.MessageNotShown.FeatureDisabled
+0:01:27 TextSelectionChanged
+0:02:08 TextSelectionChanged
+0:02:10 TextSelectionChanged
+0:02:27 TextSelectionChanged
+0:02:59 TextSelectionChanged
+0:03:00 TextSelectionChanged
+0:03:01 TextSelectionChanged
+0:03:02 TextSelectionChanged
+0:03:06 TextSelectionChanged
+0:03:07 TextSelectionChanged
+0:03:08 TextSelectionChanged
+0:03:18 TextSelectionChanged
+0:03:19 TextSelectionChanged
+0:03:19 TextSelectionChanged
+0:03:21 TextSelectionChanged
+0:03:21 TextSelectionChanged
+0:03:22 TextSelectionChanged
+0:03:23 TextSelectionChanged
+0:03:27 Accel_SelectNumberedTab
+0:03:27 SelectNumberedTab
+0:03:29 TextSelectionChanged
+0:03:36 Tab2 StartNav21 #renderer-user #link
+0:03:39 Signin_Impression_FromChromeSigninInterceptBubble
+0:03:41 Tab2 FinishNav21
+0:03:41 Tab2 StartNav23 #renderer-script #link
+0:03:41 Tab2 FinishNav23
+0:03:41 Tab2 PageLoad
+0:03:41 Tab2 StartNav24 #renderer-script #link
+0:03:41 UserEducation.MessageNotShown
+0:03:41 UserEducation.MessageNotShown.IPH_ExtensionsZeroStatePromo
+0:03:41 UserEducation.MessageNotShown.FeatureDisabled
+0:03:42 Tab2 FinishNav24 ERR_NETWORK_CHANGED
+0:03:42 Tab2 PageLoad
+0:03:43 Tab2 StartNav25 #link
+0:03:48 Tab2 FinishNav25
+0:03:50 PasswordProtection.Gaia.HashedPasswordSaved
+0:03:50 Tab2 PageLoad
+0:03:52 TextSelectionChanged
+0:03:58 TextSelectionChanged
+0:04:00 Tab2 StartNav26 #renderer-user #form_submit
+0:04:02 Signin_Signin_FromChromeSigninInterceptBubble
+0:04:02 Widget Closed: DiceWebSigninInterceptionBubbleView
+0:04:06 Tab2 FinishNav26
+0:04:11 Tab2 StartNav27 #renderer-user #link
+0:04:11 Tab2 PageLoad
+0:04:12 Tab2 FinishNav27
+0:04:18 Tab2 StartNav28 #renderer-script #link
+0:04:18 Tab2 FinishNav28
+0:04:21 Widget Closed: StatusBubble
+0:04:26 Tab2 StartNav29 #renderer-script #link
+0:04:26 Tab2 FinishNav29
+0:04:39 Tab2 PageLoad
+0:04:51 Widget Closed: StatusBubble

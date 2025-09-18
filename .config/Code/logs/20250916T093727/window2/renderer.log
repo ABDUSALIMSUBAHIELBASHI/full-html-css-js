@@ -1,0 +1,4 @@
+2025-09-16 09:37:37.856 [info] Started local extension host with pid 30615.
+2025-09-16 09:37:38.403 [warning] Failed to fetch chat participant registry Offline
+2025-09-16 09:37:40.048 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2025-09-16 09:37:41.748 [info] [perf] Render performance baseline is 98ms
