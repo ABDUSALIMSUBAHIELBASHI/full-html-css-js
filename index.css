@@ -1,0 +1,102 @@
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #e9f3f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .box1{
+      background: #fff;
+      width: 700px;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .card-header {
+      padding: 24px;
+    }
+
+    .card-header h2 {
+      margin: 0;
+      color: #2b8a9e;
+    }
+
+    .card-header .guarantee {
+      color: #9acd32;
+      font-weight: 600;
+      margin: 8px 0;
+    }
+
+    .card-header p {
+      color: #6c7a89;
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .card-body {
+      display: flex;
+      background: #46b4b0;
+      color: #fff;
+    }
+
+    .left, .right {
+      flex: 1;
+      padding: 24px;
+    }
+
+    .left h3 {
+      margin-top: 0;
+    }
+
+    .price {
+      font-size: 32px;
+      font-weight: bold;
+      margin: 8px 0;
+    }
+
+    .price span {
+      font-size: 14px;
+      font-weight: normal;
+    }
+
+    .signup-btn {
+      background: #8eb84b;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 4px;
+      margin-top: 16px;
+      margin-left: 30px;
+      height: 40px;
+      width: 200px;
+      box-shadow: 15px;
+      
+    
+    }
+
+    .signup-btn:hover {
+      background: #b0cc30;
+    }
+
+    .right ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .right ul li {
+      margin: 6px 0;
+      opacity: 0.9;
+    }
+
+    
+      
+        
+    
+  
