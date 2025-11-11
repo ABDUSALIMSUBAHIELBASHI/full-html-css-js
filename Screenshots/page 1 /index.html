@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Dark Grid Portfolio (One Page)</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+        <script src="index.js"></script>
+
+    <style>
+        
+        .card-base {
+            background-color: #1f2937; 
+            border-radius: 2.75rem; 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3); /* shadow-2xl with darker custom colors */
+            overflow: hidden;
+            transition: all 300ms ease-in-out;
+            cursor: pointer;
+        }
+
+        .card-base:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 25px -5px rgba(168, 85, 247, 0.5), 0 8px 10px -6px rgba(168, 85, 247, 0.5); /* hover:shadow-fuchsia-700/50 */
+            border: 20px solid #e879f9; 
+        }
+        
+        .image-base {
+border-radius: 30px;
+            width: 100%;
+            height: 14rem; 
+            object-fit: cover;
+            transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
+        }
+       
+        .card-base:hover .image-base {
+            opacity: 8.8;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            margin-bottom: 10.5rem; 
+            color: white;
+            transition: color 300ms ease-in-out;
+        }
+
+        .card-base:hover .card-title {
+            color: #e879f9; 
+        }
+
+        .card-description {
+            color: #9ca3af; 
+            font-size: 0.875rem; 
+            transition: color 300ms ease-in-out;
+        }
+        
+        .card-base:hover .card-description {
+            color: #d1d5db; 
+        }
+
+   
+        .filter-btn {
+            @apply px-4 py-2 rounded-full text-white bg-gray-700 transition duration-200 focus:outline-none;
+        }
+        .active-filter {
+            @apply bg-fuchsia-600 ring-2 ring-fuchsia-400;
+        }
+        
+    </style>
+</head>
+
+<body class="bg-gray-900 font-sans space-y-8 text-white">
+    <header class="text-center py-16 bg-gray-800 border-b-2 border-fuchsia-600">
+        <h1 class="text-4xl font-extrabold cursor-pointer text-white hover:text-fuchsia-400 transition duration-300 tracking-wider">
+           Sleek Grid Portfolio
+<br>
+    
+        </h1>
+        <p class="text-lg mt-3 cursor-pointer text-gray-400 hover:text-fuchsia-400 transition duration-300">
+            A Responsive Design with Dark Mode & Clean Cards...
+            <br> <img src="b.jpeg"  width="100px" height="100px" alt="">
+        </p>
+        
+        <div class="mt-8 space-x-4">
+            <button data-filter="all" class="filter-btn active-filter">All Projects</button>
+            <button data-filter="web" class="filter-btn">Web Development</button>
+            <button data-filter="design" class="filter-btn">UI/UX Design</button>
+            <button data-filter="mobile" class="filter-btn">Mobile Apps</button>
+        </div>
+    </header>
+    
+    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6" id="project-grid">
+
+        <div class="card-base group" data-category="web">
+            <img src="https://picsum.photos/600/400?random=1" alt="Project 1" class="image-base">
+            <div class="card-content">
+                <h1 class="card-title">Project Delta</h1>
+                <p class="card-description">A minimalist card design with a subtle hover effect and clean typography.
+                     <br>   <a href="index.html">🌟</a>
+                </p>
+             <br>   <a href="index.html">🌟</a>
+            </div>
+        </div>
+
+        <div class="card-base group" data-category="design">
+            <img src="https://picsum.photos/600/400?random=2" alt="Project 2" class="image-base">
+            <div class="card-content">
+                <h2 class="card-title">Project Echo</h2>
+                <p class="card-description">The image height is kept consistent for a uniform look across the row.
+                     <br>   <a href="index.html">🌟</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="card-base group md:col-span-2 lg:col-span-1" data-category="web">
+            <img src="https://picsum.photos/800/400?random=3" alt="Project 3" class="image-base h-72">
+            <div class="card-content">
+                <h2 class="card-title">Project Foxtrot (Tall)</h2>
+                <p class="card-description">This card is taller to give the grid a dynamic, non-uniform, masonry-like appearance.
+                     <br>   <a href="index.html">🌟</a>
+                </p>
+            </div>
+        </div>
+        
+        <div class="card-base group lg:col-span-2" data-category="design mobile">
+             <img src="https://picsum.photos/600/400?random=4" alt="Project 4" class="image-base h-64">
+             <div class="card-content">
+                 <h2 class="card-title">Project Golf (Wide)</h2>
+                 <p class="card-description">This card spans two columns on large screens to break up the flow and highlight the content.
+                     <br>   <a href="index.html">🌟</a>
+                 </p>
+             </div>
+        </div>
+
+        <div class="card-base group" data-category="mobile">
+            <img src="https://picsum.photos/600/400?random=5" alt="Project 5" class="image-base">
+            <div class="card-content">
+                <h2 class="card-title">Project Hotel</h2>
+                <p class="card-description">The focus is on depth and subtle interaction rather than bright borders.
+                     <br>   <a href="index.html">🌟</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="card-base group" data-category="web">
+            <img src="https://picsum.photos/600/400?random=6" alt="Project 6" class="image-base">
+            <div class="card-content"> 
+              <h2 class="card-title">Project India</h2>
+              <p class="card-description">A cohesive look is achieved by using the same background and hover effect.
+                 <br>   <a href="index.html">🌟</a>
+              </p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="bg-gray-800 p-8 mt-12 border-t-2 border-fuchsia-600">
+      <p class="text-sm text-gray-500 flex justify-center items-center">
+          &copy; [Your Name Abdu salim ] | All Rights Reserved mobile:+250739390715 Kigali-Rwanda 
+            
+          sailabdu759@gmail.com <br>   <a href="index.html">🌟</a>
+      </p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.card-base');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    
+                    const filterValue = button.getAttribute('data-filter');
+
+                    filterButtons.forEach(btn => btn.classList.remove('active-filter'));
+                    button.classList.add('active-filter');
+
+                    projectCards.forEach(card => {
+                        const categories = card.getAttribute('data-category');
+                        
+                        card.classList.add('hidden');
+                        
+                         
+                        if (filterValue === 'all' || (categories && categories.includes(filterValue))) {
+                            
+                            setTimeout(() => {
+                                card.classList.remove('hidden');
+                            }, 50); 
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

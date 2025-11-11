@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support | Mahama Refugee Camp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bs-primary: lab(89.48% 4.44 1.58); 
+            --bs-secondary: #eff3ef;
+            --bs-dark: #dce2e9;
+            --bs-light-bg: #e0f5f5;
+            --bs-body-font-family: 'Poppins', sans-serif;
+            --header-bg-color: #ececfd;
+            --footer-bg-color: #afa7c2;
+        }
+
+        body {
+            font-family: var(--bs-body-font-family);
+            background: linear-gradient(135deg, var(--bs-light-bg) 0%, hsl(210, 2%, 20%) 100%);
+            min-height: 100vh;
+        }
+
+        .page-header {
+            background-color: hsl(0, 67%, 91%);
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 5px solid var(--bs-primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-title {
+            background: linear-gradient(90deg, var(--bs-primary), var(--bs-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+ 
+        .support-section {
+            background-color: #0c0707;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .section-title {
+            color: var(--bs-primary);
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--bs-primary);
+            border-radius: 2px;
+        }
+        
+        .emergency-card {
+            background: linear-gradient(135deg, #E53935 0%, #FF9800 100%);
+            color: rgb(12, 8, 8);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(229, 57, 53, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .emergency-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(229, 57, 53, 0.6);
+        }
+
+    
+        .contact-info-card {
+            background: linear-gradient(135deg, var(--bs-primary) 0%, #9C27B0 100%);
+            color: #080606;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(90, 69, 158, 0.3);
+        }
+
+        .contact-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+        }
+        
+        .contact-icon-wrapper {
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        
+        #contactBtn {
+            background: linear-gradient(90deg, var(--bs-primary), var(--bs-secondary));
+            border: none;
+            color: #141010;
+            font-weight: 600;
+            padding: 1rem 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 8px 20px rgba(3, 2, 3, 0.4);
+            transition: all 0.3s;
+        }
+
+        #contactBtn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px #04010e99;
+        }
+      
+        .impact-card {
+            background: linear-gradient(135deg, var(--bs-secondary) 0%, hsl(200, 18%, 3%) 100%);
+            color: rgb(20, 17, 17);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.3);
+        }
+
+        .impact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.5);
+        }
+        
+        .impact-card img {
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .page-footer {
+            background-color: var(--footer-bg-color);
+            color: rgb(26, 20, 20);
+            padding: 4rem 0 2rem;
+            margin-top: 3rem;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+        }
+
+        .footer-link-title {
+            color: #160f0f;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-link-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 30px;
+            height: 3px;
+            background-color: var(--bs-secondary);
+            border-radius: 1.5px;
+        }
+
+        .footer-link a {
+            color: rgba(36, 30, 30, 0.8);
+            text-decoration: none;
+            transition: color 0.3s, padding-left 0.3s;
+            display: inline-block;
+        }
+
+        .footer-link a:hover {
+            color: var(--bs-secondary);
+            padding-left: 5px;
+        }
+        
+        .social-btn {
+            background-color: rgba(255, 255, 255, 0.15);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(32, 32, 32);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .social-btn:hover {
+            background-color: var(--bs-secondary); 
+            transform: translateY(-2px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <header class="page-header">
+        <div class="container text-center">
+            <h1 class="display-4 header-title">Support</h1>
+        </div>
+    </header>
+    
+    <main class="container">
+        
+        <section class="support-section">
+            <h2 class="section-title text-center">🚨 Emergency Contacts</h2>
+            <div class="row g-4 mt-4">
+                <div class="col-md-6">
+                    <div class="emergency-card">
+                        <h3 class="h4 mb-3">GBV Hotline</h3>
+                        <span class="display-3 fw-bold d-block mb-3">3512</span>
+                        <p class="fs-5">24/7 Gender-Based Violence Support & Counseling</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="emergency-card" style="background: linear-gradient(135deg, #1976D2 0%, #4DD0E1 100%); box-shadow: 0 10px 25px rgba(25, 118, 210, 0.4);">
+                        <h3 class="h4 mb-3">Camp Security</h3>
+                        <span class="display-3 fw-bold d-block mb-3">0735281339</span>
+                        <p class="fs-5">Kigali-Rwanda | ☎ +250 739 390 715</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="support-section">
+            <h2 class="section-title text-center">📬 Send Us a Message</h2>
+            <div class="row g-5">
+                
+                <div class="col-lg-7 order-lg-1">
+                    <form id="contactForm">
+                        <div class="mb-4">
+                            <label for="name" class="form-label fs-5 fw-semibold text-dark">Full Name</label>
+                            <input type="text" class="form-control form-control-lg" id="name" placeholder="Enter your full name" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="email" class="form-label fs-5 fw-semibold text-dark">Email Address</label>
+                            <input type="email" class="form-control form-control-lg" id="email" placeholder="your.email@example.com" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="phone" class="form-label fs-5 fw-semibold text-dark">Phone Number</label>
+                            <input type="tel" class="form-control form-control-lg" id="phone" placeholder="Your contact number" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="subject" class="form-label fs-5 fw-semibold text-dark">Message Subject</label>
+                            <select class="form-select form-select-lg" id="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Support Request</option>
+                                <option value="partnership">Partnership Opportunity</option>
+                                <option value="volunteer">Volunteer Inquiry</option>
+                                <option value="donation">Donation Question</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="message" class="form-label fs-5 fw-semibold text-dark">Your Message</label>
+                            <textarea class="form-control form-control-lg" id="message" rows="5" placeholder="Please type your message here. We'll respond via email and SMS..." required></textarea>
+                        </div>
+                        
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" id="copy" checked>
+                            <label class="form-check-label text-dark" for="copy">Send a confirmation copy to my email</label>
+                        </div>
+                        
+                        <div class="text-center my-4 d-none text-primary fs-5" id="loading">
+                            <div class="spinner-border text-primary me-2" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            Sending your message... 🌟
+                        </div>
+                        
+                        <div class="alert alert-success d-none my-4 animate__animated animate__fadeIn" role="alert" id="successMessage">
+                            <h4 class="alert-heading">Message Sent Successfully! 🎉</h4>
+                            <p>Thank you for reaching out. We've received your message and will respond to both your email and phone shortly.</p>
+                        </div>
+                        
+                        <div class="alert alert-danger d-none my-4 animate__animated animate__fadeIn" role="alert" id="errorMessage">
+                            <h4 class="alert-heading">Message Not Sent</h4>
+                            <p id="errorText">There was an issue sending your message. Please try again.</p>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-lg w-100 d-flex justify-content-center align-items-center gap-2" id="contactBtn">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message 🌟
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="col-lg-5 order-lg-2">
+                    <div class="contact-info-card h-100">
+                        <h3 class="h3 mb-4 text-center border-bottom pb-3">Get In Touch</h3>
+                        
+                        <div class="d-flex align-items-center contact-item">
+                            <div class="contact-icon-wrapper me-3">
+                                <i class="fas fa-envelope fs-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="h5 mb-1">Email Address</h4>
+                                <p class="mb-0 small opacity-90">sailabdu759@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex align-items-center contact-item">
+                            <div class="contact-icon-wrapper me-3">
+                                <i class="fas fa-phone fs-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="h5 mb-1">Phone Number</h4>
+                                <p class="mb-0 small opacity-90">+250 739 390 715</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex align-items-center contact-item">
+                            <div class="contact-icon-wrapper me-3">
+                                <i class="fas fa-map-marker-alt fs-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="h5 mb-1">Our Location</h4>
+                                <p class="mb-0 small opacity-90">Mahama Refugee Camp, Rwanda</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex align-items-center contact-item">
+                            <div class="contact-icon-wrapper me-3">
+                                <i class="fas fa-clock fs-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="h5 mb-1">Response Time</h4>
+                                <p class="mb-0 small opacity-90">Within 24 hours guaranteed 🌟</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="text-center py-5 px-4 bg-light rounded-3 shadow-sm my-5 border border-primary opacity-75">
+            <h2 class="h3 mb-3 text-primary">💝 Support Our Mission</h2>
+            <p class="lead text-dark max-w-lg mx-auto">
+                Your support enables us to continue providing **safe spaces, education, and empowerment** opportunities for girls in Mahama refugee camp. Every contribution transforms lives and creates lasting change.
+            </p>
+        </section>
+        
+        <section class="support-section">
+            <h2 class="section-title text-center">🌟 How Your Support Helps</h2>
+            <div class="row g-4 mt-4">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="impact-card h-100">
+                        <img src="0.jpg" width="100" height="100" alt="Educational Materials" class="img-fluid mb-3 mx-auto">
+                        <h3 class="h5 mb-2 fw-bold">$2,0000 – Educational Materials</h3>
+                        <p class="small">Provides books, notebooks, and learning supplies for one girl for a full month of education.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="impact-card h-100" style="background: linear-gradient(135deg, #1976D2 0%, #00BCD4 100%); box-shadow: 0 10px 25px rgba(25, 118, 210, 0.4);">
+                        <img src="111.avif" width="100" height="100" alt="Digital Access" class="img-fluid mb-3 mx-auto">
+                        <h3 class="h5 mb-2 fw-bold">$500 – Digital Access</h3>
+                        <p class="small">Covers internet access and device usage for online learning and vital communication.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="impact-card h-100" style="background: linear-gradient(135deg, #FF7043 0%, #FFCC80 100%); box-shadow: 0 10px 25px rgba(255, 112, 67, 0.4);">
+                        <img src="1.jpg" width="100" height="100" alt="Safety Programs" class="img-fluid mb-3 mx-auto">
+                        <h3 class="h5 mb-2 fw-bold">$10,000 – Safety Programs</h3>
+                        <p class="small">Funds GBV prevention training and safety workshops for 10 girls in the camp.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="impact-card h-100" style="background: linear-gradient(135deg, #7CB342 0%, #AED581 100%); box-shadow: 0 10px 25px rgba(124, 179, 66, 0.4);">
+                        <img src="download (1).jpeg" width="100" height="100" alt="Vocational Training" class="img-fluid mb-3 mx-auto">
+                        <h3 class="h5 mb-2 fw-bold">$250 – Vocational Training</h3>
+                        <p class="small">Sponsors complete vocational training program including materials and certification. 🌟</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row pb-4">
+                
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="111.avif" height="50" width="50" alt="GirlsSpace Logo" class="me-3">
+                        <div>
+                            <p class="h5 fw-bold mb-0">GirlsSpace Mahama</p>
+                            <p class="small opacity-75 mb-0">Empowering Girls, Building Futures</p>
+                        </div>
+                    </div>
+                    <p class="opacity-80">
+                        A safe digital haven where girls in Mahama refugee camp can connect, learn, grow, and thrive.
+                    </p>
+                    <div class="d-flex gap-2 mt-3">
+                        <a href="https://www.facebook.com/" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://x.com/i/flow/login?lang=en" class="social-btn"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/accounts/login/" class="social-btn"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/" class="social-btn"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3 col-lg-2 mb-3">
+                    <h4 class="footer-link-title">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li class="footer-link"><a href="https://www.pathofexile.com/forum/view-thread/3089527" class="d-block mb-2">Join Chat</a></li>
+                        <li class="footer-link"><a href="https://www.youtube.com/watch?v=lbuIWeYm2jU" class="d-block mb-2">Share Story</a></li>
+                        <li class="footer-link"><a href="https://www.wecdsb.on.ca/" class="d-block mb-2">Programs</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-3 col-lg-2 mb-3">
+                    <h4 class="footer-link-title">Get Help</h4>
+                    <ul class="list-unstyled">
+                        <li class="footer-link"><a href="https://www.who.int/emergencies/emergency-health-kits" class="d-block mb-2">Emergency</a></li>
+                        <li class="footer-link"><a href="http://www.supportlinks.biz/" class="d-block mb-2">Support</a></li>
+                        <li class="footer-link"><a href="https://bitly.com/pages/fr/trust/report-abuse" class="d-block mb-2">Report</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom pt-3 mt-4 text-center text-md-start">
+                <div class="row">
+                    <div class="col-md-6 small opacity-75 mb-2 mb-md-0">
+                        &copy; 2025 GirlsSpace Mahama. <span class="fw-semibold">Empowering girls, always.</span>
+                    </div>
+                    <div class="col-md-6 text-md-end small opacity-75">
+                        <p class="mb-0">Available in: English, Français, Kiswahili, Kinyarwanda, Arabic</p>
+                        <p class="mb-0">Supported by UNHCR, Save The Children, Alight 🌟</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+         
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            const sendCopy = document.getElementById('copy').checked;
+  
+            if (!name || !email || !phone || !subject || !message) {
+                showError('Please fill in all required fields.');
+                return;
+            }
+     
+   
+            const loading = document.getElementById('loading');
+            const contactBtn = document.getElementById('contactBtn');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            loading.classList.remove('d-none');
+            contactBtn.disabled = true;
+            successMessage.classList.add('d-none');
+            errorMessage.classList.add('d-none');
+            
+         
+            setTimeout(() => {
+                loading.classList.add('d-none');
+          
+                successMessage.classList.remove('d-none');
+                contactBtn.disabled = false;
+                
+                document.getElementById('contactForm').reset();
+                successMessage.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+                
+                console.log('Message details:', {
+                    name, email, phone, subject, message, sendCopy,
+                    toEmail: 'sailabdu759@gmail.com',
+                    toPhone: '+250739390715'
+                });
+                
+            }, 2000);
+        });
+        
+        function showError(message) {
+            const errorMessage = document.getElementById('errorMessage');
+            document.getElementById('errorText').textContent = message;
+            errorMessage.classList.remove('d-none');
+            errorMessage.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'center' 
+            });
+            document.getElementById('contactBtn').disabled = false;
+            document.getElementById('loading').classList.add('d-none');
+        }
+    </script>
+</body>
+</html>
