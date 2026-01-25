@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asiatic Lion - Animation Landing Page</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <h2 class="logo">Abdusalim</h2>
+      <ul class="nav-links">
+        <li><a href="#species">Species</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#work">Our Work</a></li>
+        <li><a href="#involved">Get Involved</a></li>
+        <li><a href="#donate" class="btn">Donate</a></li>
+      </ul>
+      <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Asiatic & african-lion<span></span></h1>
+      <p>Status: <strong>Endangered</strong></p>
+      <p> <br>The majestic Asiatic lion is found only in the 
+        Gir Forest of India. Conservation efforts are 
+        ongoing to protect this rare species. <br></p>
+      <button class="learn-more" onclick="scrollToSection('species')"> <a href="https://unsplash.com/s/photos/lion
+        "> Learn More</button>
+    </div>
+    <div class="hero-image">
+      <img src="l.jpeg" alt="Asiatic Lion" />
+      <a href="
+https://youtu.be/pUKoepUtOKw">african-lion</a>
+    </div>
+  </section>
+
+  <section id="species" class="section">
+    <div class="text-box">
+      <h2>Species</h2>
+      <p>The Asiatic Lion (<em>Panthera leo 
+        persica</em>) lives only in India’s
+         Gir Forest. Conservation is crucial
+          for its survival. <a href="https://www.freepik.com/free-
+          photos-vectors/lion/2#uuid=a35e8537
+          -6110-496e-8439-8dfd9dc38f3c">acion Lion</a> <br>
+        <a href="page.html">📍@</a></p>
+    </div>
+    <div class="image-box">
+      <img src="g.jpeg" alt="Species" />
+    </div>
+  </section>
+
+ 
+  <section id="about" class="section reverse">
+    <div class="text-box">
+      <h2>About Us</h2>
+      <p>We are a wildlife <br>conservation group 
+        committed to saving endangered species 
+        and protecting their natural habitats.  <a href="https://www.freepik.com/free-
+          photos-vectors/lion/2#uuid=a35e8537
+          -6110-496e-8439-8dfd9dc38f3c">acion Lion</a> <br>
+      <a href="page.html">@📍</a></p>
+    </div>
+    <div class="image-box">
+      <img src="o.jpeg" alt="About Us" />
+    </div>
+  </section>
+  <section id="work" class="section">
+    <div class="text-box">
+      <h2>Our Work</h2>
+      <p>Our mission includes research, habitat 
+        protection, and community education to 
+        ensure the future of the Asiatic Lion.  <a href="https://www.freepik.com/free-
+          photos-vectors/lion/2#uuid=a35e8537
+          -6110-496e-8439-8dfd9dc38f3c">african-lion</a> <br>
+      <a href="page.html">📍@</a></p>
+    </div>
+    <div class="image-box">
+      <img src="w.jpeg" alt="Our Work" />
+    </div>
+  </section>
+
+
+  <section id="involved" class="section reverse">
+    <div class="text-box">
+      <h2>Get Involved</h2>
+      <p>Join hands with us to <br> make a real 
+        difference. Volunteer, spread awareness,
+         or donate to help <br>protect wildlife.  <a href="https://www.freepik.com/free-
+          photos-vectors/lion/2#uuid=a35e8537
+          -6110-496e-8439-8dfd9dc38f3c">acion Lion</a> <br>
+        <a href="page.html">📍@</a></p>
+    </div>
+    <div class="image-box">
+      <img src="l.jpeg" alt="Get Involved" />
+    </div>
+  </section>
+
+  <section id="donate" class="form-section">
+    <h2>Support Our Cause</h2>
+    <p>Your contribution <br> directly helps conserve
+       endangered species <br> like the Asiatic Lion.  <a href="https://www.freepik.com/free-
+          photos-vectors/lion/2#uuid=a35e8537
+          -6110-496e-8439-8dfd9dc38f3c">african-lion</a> <br>
+      <a href="page.html">@📍</a></p>
+    <form id="donationForm" onsubmit="return handleSubmit(event)">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <input type="number" id="amount" placeholder="Donation Amount ($)" required />
+      <textarea id="message" placeholder="Your Message"></textarea>
+      <button type="submit" class="btn">Donate Now</button>
+    </form>
+    <p class="success-msg" id="successMsg"></p>
+
+    <div class="contact-info">
+      <p><strong>📞 Phone:</strong> +250 739 390 715</p>
+      <p><strong>📧 Email:</strong> salimabdu759@gmail.com</p>
+      <p><strong>📍 Location:</strong> <Br>© 2025 Abdusalim </Br>Kigali, Rwanda
+      <a href="page.html">@📍</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <p></p>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+</html>

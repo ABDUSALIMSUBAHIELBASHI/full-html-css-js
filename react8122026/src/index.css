@@ -1,0 +1,273 @@
+.education-page {
+  padding: 40px;
+}
+
+.education-hero {
+  text-align: center;
+  padding: 80px 40px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+  border-radius: 20px;
+  margin-bottom: 80px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  animation: slideInDown 0.6s ease-out;
+}
+
+.education-hero h1 {
+  font-size: 3.5rem;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+}
+
+.education-hero p {
+  font-size: 1.25rem;
+  color: #94a3b8;
+}
+
+.education-content {
+  margin-bottom: 80px;
+}
+
+.education-content h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 60px;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.education-card {
+  padding: 40px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  animation: slideUp 0.6s ease-out;
+  position: relative;
+}
+
+.education-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(99, 102, 241, 0.5);
+  background: rgba(99, 102, 241, 0.15);
+}
+
+.education-header {
+  margin-bottom: 15px;
+}
+
+.education-header h3 {
+  font-size: 1.4rem;
+  color: #6366f1;
+  margin-bottom: 5px;
+}
+
+.institution {
+  color: #94a3b8;
+  font-size: 1rem;
+}
+
+.year {
+  color: #a855f7;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.description {
+  color: #cbd5e1;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.gpa-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.certifications-section {
+  padding: 80px 40px;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-radius: 20px;
+  margin-bottom: 80px;
+}
+
+.certifications-section h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 60px;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.certification-card {
+  padding: 30px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.certification-card:hover {
+  transform: scale(1.05);
+  border-color: rgba(99, 102, 241, 0.5);
+  background: rgba(99, 102, 241, 0.15);
+}
+
+.cert-icon {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.certification-card p {
+  color: #cbd5e1;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.skills-development {
+  padding: 80px 40px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.skills-development h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 60px;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.skills-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.skill-category {
+  padding: 30px;
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 12px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.skill-category h3 {
+  font-size: 1.3rem;
+  color: #6366f1;
+  margin-bottom: 25px;
+}
+
+.skill-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skill-item span {
+  color: #e2e8f0;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.progress-bar {
+  height: 8px;
+  background: rgba(99, 102, 241, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1 0%, #a855f7 100%);
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .education-page {
+    padding: 20px;
+  }
+
+  .education-hero {
+    padding: 60px 20px;
+  }
+
+  .education-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .education-grid,
+  .certifications-grid,
+  .skills-categories {
+    grid-template-columns: 1fr;
+  }
+
+  .education-content h2,
+  .certifications-section h2,
+  .skills-development h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  .certifications-section,
+  .skills-development {
+    padding: 60px 20px;
+  }
+}

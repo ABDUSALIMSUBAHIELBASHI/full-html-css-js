@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="ps.css">
+  <script src="index.js"></script>
+  <title>Package Version Analyzer</title>
+  <style>
+    :root {
+      --primary: #6C63FF;
+      --primary-dark: #5752D4;
+      --secondary: #FF6584;
+      --success: #36D1DC;
+      --danger: #FF4B2B;
+      --warning: #FFB347;
+      --light: #F8F9FA;
+      --dark: #2D3748;
+      --gray: #718096;
+      --border: #E2E8F0;
+      --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: var(--dark);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    header {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: white;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><path fill="white" d="M20,20 L80,20 L80,80 L20,80 Z M30,30 L70,30 L70,70 L30,70 Z M40,40 L60,40 L60,60 L40,60 Z"/></svg>');
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      position: relative;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      position: relative;
+    }
+
+    .main-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .left-panel {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .right-panel {
+      flex: 2;
+      min-width: 500px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    button {
+      flex: 1;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4);
+    }
+
+    .btn-secondary {
+      background: var(--light);
+      color: var(--dark);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: #e9ecef;
+    }
+
+    .btn-danger {
+      background: var(--danger);
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background: #e03e1a;
+    }
+
+    .btn-success {
+      background: var(--success);
+      color: white;
+    }
+
+    .btn-success:hover {
+      background: #2bb8c2;
+    }
+
+    .results-container {
+      padding: 1.5rem;
+      background: var(--light);
+      border-radius: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    thead {
+      background: var(--primary);
+      color: white;
+    }
+
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:hover {
+      background: rgba(108, 99, 255, 0.05);
+    }
+
+    .status {
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .status-ok {
+      background: rgba(54, 209, 220, 0.2);
+      color: #0a9396;
+    }
+
+    .status-mismatch {
+      background: rgba(255, 75, 43, 0.15);
+      color: var(--danger);
+    }
+
+    .status-skip {
+      background: rgba(113, 128, 150, 0.15);
+      color: var(--gray);
+    }
+
+    .status-warning {
+      background: rgba(255, 179, 71, 0.15);
+      color: #e76f51;
+    }
+
+    .summary {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .summary-item {
+      text-align: center;
+      flex: 1;
+    }
+
+    .summary-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .summary-label {
+      font-size: 0.85rem;
+      color: var(--gray);
+    }
+
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(108, 99, 255, 0.2);
+      border-left: 4px solid var(--primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .notification {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 1rem 1.5rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      max-width: 400px;
+    }
+
+    .notification.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .notification-success {
+      border-left: 4px solid var(--success);
+    }
+
+    .notification-error {
+      border-left: 4px solid var(--danger);
+    }
+
+    .notification-icon {
+      font-size: 1.5rem;
+    }
+
+    .notification-success .notification-icon {
+      color: var(--success);
+    }
+
+    .notification-error .notification-icon {
+      color: var(--danger);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      color: var(--gray);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-content {
+      background-color: white;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-header {
+      padding: 1.5rem;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+    }
+
+    .modal-footer {
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .email-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .recipients-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .recipient-tag {
+      background: var(--light);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .recipient-tag button {
+      background: none;
+      border: none;
+      color: var(--gray);
+      cursor: pointer;
+      padding: 0;
+      font-size: 1rem;
+      flex: 0;
+    }
+
+    .recipient-tag button:hover {
+      color: var(--danger);
+    }
+
+    .saved-messages {
+      margin-top: 1rem;
+    }
+
+    .message-item {
+      padding: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      background: var(--light);
+    }
+
+    .message-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .message-date {
+      color: var(--gray);
+      font-size: 0.85rem;
+    }
+
+    .message-actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .message-actions button {
+      flex: 0;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.85rem;
+    }
+
+    .close-modal {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0;
+      flex: 0;
+    }
+
+    .email-preview {
+      background: var(--light);
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .email-preview h4 {
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .main-content {
+        flex-direction: column;
+      }
+      
+      .btn-group {
+        flex-direction: column;
+      }
+      
+      .summary {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      th, td {
+        padding: 0.75rem 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1> l,m Abdu sailm <br>
+        Package Version Analyzer</h1>
+      <p class="subtitle"></p>
+    </header>
+
+    <div class="main-content">
+      <div class="left-panel">
+        <div class="card">
+          <h2 class="card-title">Configuration</h2>
+          <div class="form-group">
+            <label for="tagVersion">Tag Version</label>
+            <input type="text" id="tagVersion" placeholder="" />
+          </div>
+
+          <div class="form-group">
+            <label for="packageManager">Package Manager</label>
+            <select id="packageManager">
+              <option value="npm">npm</option>
+              <option value="yarn">Yarn</option>
+              <option value="pnpm">pnpm</option>
+            </select>
+          </div>
+
+          <div class="btn-group">
+            <button id="checkBtn" class="btn-primary">
+              <span>Check Versions</span>
+            </button>
+            <button id="clearBtn" class="btn-secondary">
+              <span>Clear Results</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title">Actions</h2>
+          <div class="btn-group">
+            <button id="exportBtn" class="btn-secondary">
+              <span>Export Results</span>
+            </button>
+            <button id="emailBtn" class="btn-success">
+              <span>Email Results</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="card-title">Quick Stats</h2>
+          <div class="summary" id="summary">
+            <div class="summary-item">
+              <div class="summary-value" id="totalPackages">0</div>
+              <div class="summary-label">Total Packages</div>
+            </div>
+            <div class="summary-item">
+              <div class="summary-value" id="upToDate">0</div>
+              <div class="summary-label">Up to Date</div>
+            </div>
+            <div class="summary-item">
+              <div class="summary-value" id="outdated">0</div>
+              <div class="summary-label">Outdated</div>
+            </div>
+            <div class="summary-item">
+              <div class="summary-value" id="warnings">0</div>
+              <div class="summary-label">Warnings</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-panel">
+        <div class="card">
+          <h2 class="card-title">Package Analysis</h2>
+          <div class="loading" id="loadingIndicator">
+            <div class="spinner"></div>
+            <p>Checking package versions...</p>
+          </div>
+
+          <div class="results-container">
+            <table id="results">
+              <thead>
+                <tr>
+                  <th>Package</th>
+                  <th>Current Version</th>
+                  <th>Latest Version</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>  </p>
+    </footer>
+  </div>
+  <div class="modal" id="emailModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Share Analysis Results</h2>
+        <button class="close-modal" id="closeEmailModal">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="email-form">
+          <div class="form-group">
+            <label for="recipientEmail">Recipient Email</label>
+            <div style="display: flex; gap: 0.5rem;">
+              <input type="email" id="recipientEmail" placeholder="salimabdu759@gmail.com" style="flex: 1;" />
+              <button id="addRecipientBtn" class="btn-primary" style="flex: 0 0 auto;">Add</button>
+            </div>
+            <div class="recipients-list" id="recipientsList"></div>
+          </div>
+          <div class="form-group">
+            <label for="emailSubject">Subject</label>
+            <input type="text" id="emailSubject" value="Package Version Analysis Results" />
+          </div>
+          <div class="form-group">
+            <label for="emailMessage">Message</label>
+            <textarea id="emailMessage" rows="5" placeholder="Add a custom message...">
+</textarea>
+          </div>
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="saveMessage" />
+              Save this message template for future use
+            </label>
+          </div>
+          
+          <div class="email-preview">
+            <h4>Preview:</h4>
+            <div id="emailPreview"></div>
+          </div>
+          
+          <div class="saved-messages" id="savedMessages">
+            <h3>Saved Message Templates</h3>
+            <div id="savedMessagesList"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="cancelEmailBtn" class="btn-secondary">Cancel</button>
+        <button id="sendEmailBtn" class="btn-primary">Send Email</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="notification" id="notification">
+    <div class="notification-icon">✓</div>
+    <div class="notification-content">
+      <div class="notification-title">Success</div>
+      <div class="notification-message">Operation completed successfully</div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  
+      const tagVersionInput = document.getElementById('tagVersion');
+      const packageManagerSelect = document.getElementById('packageManager');
+      const checkBtn = document.getElementById('checkBtn');
+      const clearBtn = document.getElementById('clearBtn');
+      const exportBtn = document.getElementById('exportBtn');
+      const emailBtn = document.getElementById('emailBtn');
+      const resultsTable = document.getElementById('results').getElementsByTagName('tbody')[0];
+      const loadingIndicator = document.getElementById('loadingIndicator');
+      const notification = document.getElementById('notification');
+      const totalPackagesEl = document.getElementById('totalPackages');
+      const upToDateEl = document.getElementById('upToDate');
+      const outdatedEl = document.getElementById('outdated');
+      const warningsEl = document.getElementById('warnings');
+      
+     
+      const emailModal = document.getElementById('emailModal');
+      const closeEmailModal = document.getElementById('closeEmailModal');
+      const recipientEmailInput = document.getElementById('recipientEmail');
+      const addRecipientBtn = document.getElementById('addRecipientBtn');
+      const recipientsList = document.getElementById('recipientsList');
+      const emailSubjectInput = document.getElementById('emailSubject');
+      const emailMessageInput = document.getElementById('emailMessage');
+      const saveMessageCheckbox = document.getElementById('saveMessage');
+      const savedMessagesList = document.getElementById('savedMessagesList');
+      const cancelEmailBtn = document.getElementById('cancelEmailBtn');
+      const sendEmailBtn = document.getElementById('sendEmailBtn');
+      const emailPreview = document.getElementById('emailPreview');
+
+      let savedMessages = JSON.parse(localStorage.getItem('savedMessages')) || [];
+      let recipients = [];
+      let currentPackages = [];
+      
+
+      const samplePackages = [
+        { name: 'react', current: '17.0.2', latest: '18.2.0', status: 'mismatch' },
+        { name: 'react-dom', current: '17.0.2', latest: '18.2.0', status: 'mismatch' },
+        { name: 'axios', current: '1.0.0', latest: '1.0.0', status: 'ok' },
+        { name: 'lodash', current: '4.17.21', latest: '4.17.21', status: 'ok' },
+        { name: 'webpack', current: '5.74.0', latest: '5.88.0', status: 'warning' },
+        { name: 'babel-core', current: '6.26.3', latest: '7.22.0', status: 'mismatch' },
+        { name: 'express', current: '4.18.1', latest: '4.18.2', status: 'warning' },
+        { name: 'typescript', current: '4.9.4', latest: '5.1.6', status: 'mismatch' }
+      ];
+      updateTable(samplePackages);
+      updateSummary(samplePackages);
+      renderSavedMessages();
+      updateEmailPreview();
+
+      checkBtn.addEventListener('click', function() {
+        const tagVersion = tagVersionInput.value.trim();
+        const packageManager = packageManagerSelect.value;
+
+        if (!tagVersion) {
+          showNotification('Please enter a tag version', 'error');
+          return;
+        }
+
+        loadingIndicator.style.display = 'block';
+        
+        setTimeout(() => {
+
+          const randomizedPackages = samplePackages.map(pkg => {
+            const random = Math.random();
+            if (random > 0.7 && pkg.status !== 'ok') {
+              return { ...pkg, status: 'ok' };
+            } else if (random > 0.5 && pkg.status === 'ok') {
+              return { ...pkg, status: 'mismatch' };
+            }
+            return pkg;
+          });
+
+          currentPackages = randomizedPackages;
+          updateTable(randomizedPackages);
+          updateSummary(randomizedPackages);
+          updateEmailPreview();
+          
+          loadingIndicator.style.display = 'none';
+          
+          showNotification(`Checked versions for tag: ${tagVersion}`, 'success');
+        }, 1500);
+      });
+
+      clearBtn.addEventListener('click', function() {
+        resultsTable.innerHTML = '';
+        currentPackages = [];
+        updateSummary([]);
+        updateEmailPreview();
+        showNotification('Results cleared', 'success');
+      });
+
+      exportBtn.addEventListener('click', function() {
+      
+        showNotification('Export functionality would be implemented here', 'success');
+      });
+
+      emailBtn.addEventListener('click', function() {
+  
+        emailModal.style.display = 'flex';
+        recipients = ['salimabdu759@gmail.com'];
+        renderRecipients();
+      });
+
+      closeEmailModal.addEventListener('click', function() {
+        emailModal.style.display = 'none';
+      });
+
+      addRecipientBtn.addEventListener('click', function() {
+        const email = recipientEmailInput.value.trim();
+        if (email && isValidEmail(email)) {
+          if (!recipients.includes(email)) {
+            recipients.push(email);
+            renderRecipients();
+            recipientEmailInput.value = '';
+          } else {
+            showNotification('Email already added', 'error');
+          }
+        } else {
+          showNotification('Please enter a valid email address', 'error');
+        }
+      });
+
+      cancelEmailBtn.addEventListener('click', function() {
+        emailModal.style.display = 'none';
+      });
+
+      sendEmailBtn.addEventListener('click', function() {
+        if (recipients.length === 0) {
+          showNotification('Please add at least one recipient', 'error');
+          return;
+        }
+
+        if (saveMessageCheckbox.checked && emailMessageInput.value.trim()) {
+          const message = {
+            id: Date.now(),
+            subject: emailSubjectInput.value,
+            message: emailMessageInput.value,
+            date: new Date().toLocaleString()
+          };
+          savedMessages.push(message);
+          localStorage.setItem('savedMessages', JSON.stringify(savedMessages));
+          renderSavedMessages();
+        }
+        showNotification(`Email sent to ${recipients.join(', ')}`, 'success');
+        emailModal.style.display = 'none';
+      });
+
+      emailMessageInput.addEventListener('input', updateEmailPreview);
+      emailSubjectInput.addEventListener('input', updateEmailPreview);
+
+      function updateTable(packages) {
+        resultsTable.innerHTML = '';
+        
+        packages.forEach(pkg => {
+          const row = resultsTable.insertRow();
+          
+          const nameCell = row.insertCell(0);
+          nameCell.textContent = pkg.name;
+          
+          const currentCell = row.insertCell(1);
+          currentCell.textContent = pkg.current;
+          
+          const latestCell = row.insertCell(2);
+          latestCell.textContent = pkg.latest;
+          
+          const statusCell = row.insertCell(3);
+          const statusSpan = document.createElement('span');
+          statusSpan.className = `status status-${pkg.status}`;
+          
+          let statusText = '';
+          switch(pkg.status) {
+            case 'ok':
+              statusText = 'Up to date';
+              break;
+            case 'mismatch':
+              statusText = 'Update available';
+              break;
+            case 'warning':
+              statusText = 'Minor update';
+              break;
+            case 'skip':
+              statusText = 'Skipped';
+              break;
+          }
+          
+          statusSpan.textContent = statusText;
+          statusCell.appendChild(statusSpan);
+        });
+      }
+
+      function updateSummary(packages) {
+        const total = packages.length;
+        const upToDate = packages.filter(pkg => pkg.status === 'ok').length;
+        const outdated = packages.filter(pkg => pkg.status === 'mismatch').length;
+        const warning = packages.filter(pkg => pkg.status === 'warning').length;
+        
+        totalPackagesEl.textContent = total;
+        upToDateEl.textContent = upToDate;
+        outdatedEl.textContent = outdated;
+        warningsEl.textContent = warning;
+      }
+
+      function showNotification(message, type) {
+        const notification = document.getElementById('notification');
+        const notificationIcon = notification.querySelector('.notification-icon');
+        const notificationMessage = notification.querySelector('.notification-message');
+        
+        notification.className = 'notification';
+        notification.classList.add(`notification-${type}`);
+        
+        if (type === 'success') {
+          notificationIcon.textContent = '✓';
+        } else {
+          notificationIcon.textContent = '⚠';
+        }
+        
+        notificationMessage.textContent = message;
+        notification.classList.add('show');
+        
+        setTimeout(() => {
+          notification.classList.remove('show');
+        }, 3000);
+      }
+
+      function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+
+      function renderRecipients() {
+        recipientsList.innerHTML = '';
+        recipients.forEach(email => {
+          const tag = document.createElement('div');
+          tag.className = 'recipient-tag';
+          tag.innerHTML = `
+            ${email}
+            <button type="button" data-email="${email}">×</button>
+          `;
+          recipientsList.appendChild(tag);
+        });
+
+        recipientsList.querySelectorAll('button').forEach(button => {
+          button.addEventListener('click', function() {
+            const emailToRemove = this.getAttribute('data-email');
+            recipients = recipients.filter(email => email !== emailToRemove);
+            renderRecipients();
+          });
+        });
+      }
+
+      function renderSavedMessages() {
+        savedMessagesList.innerHTML = '';
+        
+        if (savedMessages.length === 0) {
+          savedMessagesList.innerHTML = '<p>No saved messages yet.</p>';
+          return;
+        }
+        
+        savedMessages.forEach(message => {
+          const messageItem = document.createElement('div');
+          messageItem.className = 'message-item';
+          messageItem.innerHTML = `
+            <div class="message-header">
+              <strong>${message.subject}</strong>
+              <span class="message-date">${message.date}</span>
+            </div>
+            <p>${message.message}</p>
+            <div class="message-actions">
+              <button class="btn-secondary" data-id="${message.id}">Use This</button>
+              <button class="btn-danger" data-id="${message.id}">Delete</button>
+            </div>
+          `;
+          savedMessagesList.appendChild(messageItem);
+        });
+
+        savedMessagesList.querySelectorAll('.btn-secondary').forEach(button => {
+          button.addEventListener('click', function() {
+            const messageId = parseInt(this.getAttribute('data-id'));
+            const message = savedMessages.find(m => m.id === messageId);
+            if (message) {
+              emailSubjectInput.value = message.subject;
+              emailMessageInput.value = message.message;
+              updateEmailPreview();
+            }
+          });
+        });
+
+        savedMessagesList.querySelectorAll('.btn-danger').forEach(button => {
+          button.addEventListener('click', function() {
+            const messageId = parseInt(this.getAttribute('data-id'));
+            savedMessages = savedMessages.filter(m => m.id !== messageId);
+            localStorage.setItem('savedMessages', JSON.stringify(savedMessages));
+            renderSavedMessages();
+            showNotification('Message deleted', 'success');
+          });
+        });
+      }
+
+      function updateEmailPreview() {
+        const subject = emailSubjectInput.value;
+        const message = emailMessageInput.value;
+        
+        let packagesHtml = '';
+        if (currentPackages.length > 0) {
+          packagesHtml = `
+            <h4>Package Analysis Results:</h4>
+            <ul>
+              ${currentPackages.map(pkg => {
+                let statusText = '';
+                switch(pkg.status) {
+                  case 'ok': statusText = 'Up to date'; break;
+                  case 'mismatch': statusText = 'Update available'; break;
+                  case 'warning': statusText = 'Minor update'; break;
+                  default: statusText = 'Unknown';
+                }
+                return `<li>${pkg.name}: ${pkg.current} → ${pkg.latest} (${statusText})</li>`;
+              }).join('')}
+            </ul>
+          `;
+        }
+        
+        emailPreview.innerHTML = `
+          <p><strong>Subject:</strong> ${subject}</p>
+          <p><strong>Message:</strong></p>
+          <p>${message.replace(/\n/g, '<br>')}</p>
+          ${packagesHtml}
+        `;
+      }
+    });
+  </script>
+</body>
+</html>
