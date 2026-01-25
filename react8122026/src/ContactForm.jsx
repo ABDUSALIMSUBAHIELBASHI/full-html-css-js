@@ -44,13 +44,13 @@ function Contact() {
     {
       icon: '📱',
       title: 'Phone',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567'
+      value: '+250739390715',
+      link: 'tel:0735281339'
     },
     {
       icon: '📍',
       title: 'Location',
-      value: 'New York, USA',
+      value: 'kigali,RWANDA',
       link: '#'
     },
     {
@@ -117,7 +117,7 @@ function Contact() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="John Doe"
+                    placeholder=""
                     required
                   />
                 </div>
@@ -130,7 +130,7 @@ function Contact() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="your@email.com"
+                    placeholder=""
                     required
                   />
                 </div>
@@ -143,7 +143,7 @@ function Contact() {
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    placeholder="Project Inquiry"
+                    placeholder=""
                     required
                   />
                 </div>
@@ -155,7 +155,7 @@ function Contact() {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Tell me about your project..."
+                    placeholder=""
                     rows="6"
                     required
                   ></textarea>

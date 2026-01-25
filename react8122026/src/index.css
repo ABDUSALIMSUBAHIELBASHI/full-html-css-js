@@ -5,16 +5,16 @@
 .education-hero {
   text-align: center;
   padding: 80px 40px;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(8, 7, 9, 0.872) 100%);
   border-radius: 20px;
   margin-bottom: 80px;
-  border: 1px solid rgba(99, 102, 241, 0.2);
+  border: 1px solid rgba(0, 0, 15, 0.86);
   animation: slideInDown 0.6s ease-out;
 }
 
 .education-hero h1 {
   font-size: 3.5rem;
-  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  background: linear-gradient(135deg, hsl(240, 88%, 3%) 0%, hsl(270, 7%, 6%) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -34,7 +34,7 @@
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 60px;
-  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  background: linear-gradient(135deg, hsl(240, 19%, 7%) 0%, #a855f7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

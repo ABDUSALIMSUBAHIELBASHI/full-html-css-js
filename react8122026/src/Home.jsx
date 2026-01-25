@@ -75,19 +75,19 @@ function Home() {
             <div className="project-icon">🎨</div>
             <h3>E-Commerce Platform</h3>
             <p>Modern shopping experience with React & Node.js</p>
-            <Link to="#" className="project-link">View Project →</Link>
+            <Link to="https://gooodidae.netlify.app/" className="project-lin">View Project →</Link>
           </div>
           <div className="project-card">
             <div className="project-icon">📱</div>
             <h3>Mobile App Dashboard</h3>
             <p>Real-time analytics dashboard for mobile apps</p>
-            <Link to="#" className="project-link">View Project →</Link>
+            <Link to="https://quranjshtmlcss.netlify.app/" className="project-link">View Project →</Link>
           </div>
           <div className="project-card">
             <div className="project-icon">🚀</div>
             <h3>SaaS Platform</h3>
             <p>Scalable cloud-based solution for businesses</p>
-            <Link to="#" className="project-link">View Project →</Link>
+            <Link to="https://abdusalimsubahielbashi.github.io/my-Portfolio/" className="project-link">View Project →</Link>
           </div>
         </div>
       </section>

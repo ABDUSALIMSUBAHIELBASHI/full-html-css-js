@@ -70,14 +70,14 @@ const Contact = () => {
               <div className="contact-card card-phone">
                 <div className="card-icon">📞</div>
                 <h3>Phone</h3>
-                <p className="card-value">+1 (555) 123-4567</p>
-                <a href="tel:+15551234567" className="card-link">Call Now</a>
+                <p className="card-value">+25039390715</p>
+                <a href="tel:+250739390715" className="card-link">Call me</a>
               </div>
 
               <div className="contact-card card-location">
                 <div className="card-icon">📍</div>
                 <h3>Location</h3>
-                <p className="card-value">San Francisco, CA</p>
+                <p className="card-value">kigali-Rwanda </p>
                 <a href="#" className="card-link">View Map</a>
               </div>
 
@@ -85,7 +85,7 @@ const Contact = () => {
                 <div className="card-icon">⏰</div>
                 <h3>Availability</h3>
                 <p className="card-value">Mon-Fri, 9AM-6PM</p>
-                <a href="#" className="card-link">Schedule Call</a>
+                <a href="#" className="card-link">Call me</a>
               </div>
             </div>
           </div>
@@ -102,7 +102,7 @@ const Contact = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="John Doe"
+                  placeholder=""
                   className={errors.name ? "input-error" : ""}
                 />
                 {errors.name && <span className="error-text">{errors.name}</span>}
@@ -116,7 +116,7 @@ const Contact = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="john@example.com"
+                  placeholder=""
                   className={errors.email ? "input-error" : ""}
                 />
                 {errors.email && <span className="error-text">{errors.email}</span>}
